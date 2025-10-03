@@ -630,8 +630,19 @@ body {
     }
 
     .cart-popup {
-        width: 280px;
-        right: -80px;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+        transform: none;
+    }
+
+    .cart-popup__content {
+        max-height: calc(100vh - 140px);
     }
 
     .cart-item {
