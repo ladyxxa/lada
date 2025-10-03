@@ -4,7 +4,7 @@ const products = [
         id: 1,
         name: "LADA Granta",
         price: 600000,
-        image: "./img/IMG_6426.png"
+        image: "./img/IMG_6426.jpg"
     },
     {
         id: 2,
@@ -16,13 +16,13 @@ const products = [
         id: 3,
         name: "LADA Iskra",
         price: 850000,
-        image: "./img/IMG_6431.png"
+        image: "./img/IMG_6431.jpg"
     },
      {
         id: 4,
         name: "LADA Largus",
         price: 650000,
-        image: "./img/IMG_6432.png"
+        image: "./img/IMG_6432.jpg"
     },
      {
         id: 5,
@@ -34,13 +34,13 @@ const products = [
         id: 6,
         name: "LADA NIVA Legend",
         price: 505000,
-        image: "./img/IMG_6433.png"
+        image: "./img/IMG_6433.jpg"
     },
      {
         id: 7,
         name: "LADA NIVA Travel",
         price: 735000,
-        image: "./img/IMG_6434.png"
+        image: "./img/IMG_6434.jpg"
     },
 ];
 
