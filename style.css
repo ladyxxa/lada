@@ -12,23 +12,114 @@ body {
 }
 /* ===== БАЗОВЫЕ СТИЛИ СТРАНИЦЫ ===== */
 body {
-    background-color: #f8f9fa; /* Светло-серый фон всей страницы */
+    background-color: white; /*  фон всей страницы */
     color: #333; /* Темно-серый цвет текста */
-    padding: 20px; /* Отступы от краев окна браузера */
+    padding: 30px; /* Отступы от краев окна браузера */
 }
 
 /* Стили для шапки */
 .header {
-    text-align: center; /* Выравнивание текста по центру */
-    margin-bottom: 30px; /* Отступ снизу, чтобы отделить от каталога */
-    padding: 20px 0; /* Отступы сверху и снизу внутри шапки */
-    background-color: #000; /* Белый фон шапки */
-    border-radius: 8px; /* Скругленные углы */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Тень вокруг шапки */
+    background-color: #333;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
-    .header h1 {
-        color: #fff; /* Темно-синий цвет заголовка */
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Левый блок: логотип и текст */
+.header__left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 0px;
+}
+
+.header__logo {
+    flex-shrink: 0;
+}
+
+.header__logo-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: cover;
+    
+}
+
+.header__text {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__title {
+    color: #2c3e50;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.header__subtitle {
+    color: dimgray;
+    font-size: 0.85em;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Правый блок: корзина */
+.header-cart {
+    position: relative;
+}
+
+.header-cart__icon {
+    background: none;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    padding: 0px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    color: white;
+}
+
+    .header-cart__icon:hover {
+        background-color: white;
+    }
+
+.header-cart__svg {
+    display: block;
+}
+
+.header-cart__count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+    /* Скрываем бейдж, когда корзина пуста */
+    .header-cart__count:empty {
+        display: none;
     }
 
 /* ===== ОСНОВНОЕ РАСПОЛОЖЕНИЕ ===== */
@@ -43,7 +134,7 @@ body {
 
 .cart {
     width: 300px; /* Фиксированная ширина для корзины */
-    background-color: #fff; /* Белый фон корзины */
+    background-color: white; /* Белый фон корзины */
     padding: 20px; /* Внутренние отступы */
     border-radius: 8px; /* Скругленные углы */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Тень */
@@ -59,12 +150,12 @@ body {
 .catalog__list {
     display: grid; /* Включаем режим сетки */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Волшебная строка! */
-    gap: 20px; /* Расстояние между карточками */
+    gap: 40px; /* Расстояние между карточками */
 }
 
 /* ===== КАРТОЧКА ТОВАРА ===== */
 .product-card {
-    background-color: #fff; /* Белый фон карточки */
+    background-color: white; /* Белый фон карточки */
     border-radius: 8px; /* Скругленные углы */
     padding: 15px; /* Внутренние отступы */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Тень */
@@ -80,25 +171,25 @@ body {
 /* Стили для изображения в карточке */
 .product-card__image {
     width: 100%; /* Ширина на всю карточку */
-    height: 300px; /* Фиксированная высота */
+    height: 250px; /* Фиксированная высота */
     object-fit: cover; /* Обрезаем изображение, чтобы оно заполнило область */
     border-radius: 4px; /* Скругленные углы у изображения */
-    margin-bottom: 15px; /* Отступ снизу */
+    margin-bottom: 1px; /* Отступ снизу */
 }
 
 /* Стили для названия товара */
 .product-card__name {
     font-size: 1.2em; /* Размер шрифта чуть больше обычного */
-    font-weight: bold; /* Жирный шрифт */
+    font-weight: bolder; /* Жирный шрифт */
     margin-bottom: 10px; /* Отступ снизу */
-    color: #2c3e50; /* Цвет текста */
+    color: #333; /* Цвет текста */
 }
 
 /* Стили для цены */
 .product-card__price {
-    font-size: 1.3em; /* Размер шрифта */
-    font-weight: bold; /* Жирный шрифт */
-    color: #333; /* Черный цвет для цены */
+    font-size: 1.1em; /* Размер шрифта */
+    font-weight: normal; /* Жирный шрифт */
+    color: dimgrey; /* Черный цвет для цены */
     margin-bottom: 15px; /* Отступ снизу */
 }
 
@@ -114,20 +205,20 @@ body {
 
 /* Стили для кнопки "Добавить в корзину" */
 .btn--add {
-    background-color: rgba(0,0,0,0.1); /*  цвет фона */
-    color: black; /*  цвет текста */
+    background-color: rgba(0,0,0,0); /*  цвет фона */
+    color: #333; /*  цвет текста */
     width: 100%; /* Ширина на всю карточку */
 }
 
     /* Эффект при наведении на кнопку */
     .btn--add:hover {
-        background-color: rgb(255, 0, 0); /*  при наведении */
+        background-color: lightgrey; /*  при наведении */
     }
 
 /* ===== КОРЗИНА ===== */
 .cart h2 {
-    margin-bottom: 20px; /* Отступ снизу у заголовка */
-    color: #2c3e50; /* Цвет заголовка */
+    margin-bottom: 10px; /* Отступ снизу у заголовка */
+    color: #333; /* Цвет заголовка */
     text-align: center; /* Выравнивание по центру */
 }
 
@@ -140,7 +231,7 @@ body {
 /* Сообщение о пустой корзине */
 .cart__empty {
     text-align: center; /* Выравнивание по центру */
-    color: #7f8c8d; /* Серый цвет текста */
+    color: #333; /* Серый цвет текста */
     font-style: italic; /* Курсив */
 }
 
@@ -150,18 +241,18 @@ body {
     font-weight: bold; /* Жирный шрифт */
     text-align: center; /* Выравнивание по центру */
     margin-bottom: 20px; /* Отступ снизу */
-    color: #2c3e50; /* Цвет текста */
+    color: #333; /* Цвет текста */
 }
 
 /* Стили для кнопки оформления заказа */
 .btn--order {
-    background-color: #27ae60; /* Зеленый цвет фона */
+    background-color: dimgrey; /* цвет фона */
     color: white; /* Белый цвет текста */
     width: 100%; /* Ширина на всю корзину */
 }
 
     .btn--order:hover {
-        background-color: #219652; /* Темно-зеленый при наведении */
+        background-color: #333; /*  при наведении */
     }
 
 /* ===== АДАПТИВНОСТЬ ===== */
@@ -368,7 +459,7 @@ body {
 
     .cart-popup__header h3 {
         margin: 0;
-        color: #2c3e50;
+        color: #333;
     }
 
 .cart-popup__close {
@@ -388,7 +479,7 @@ body {
 
     .cart-popup__close:hover {
         background-color: #f8f9fa;
-        color: #e74c3c;
+        color: #333;
     }
 
 .cart-popup__content {
@@ -405,7 +496,7 @@ body {
 .cart-popup__empty {
     text-align: center;
     padding: 40px 20px;
-    color: #7f8c8d;
+    color: #333;
     font-style: italic;
 }
 
@@ -426,7 +517,7 @@ body {
     width: 50px;
     height: 50px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 1px;
 }
 
 .cart-item__info {
@@ -440,8 +531,8 @@ body {
 }
 
 .cart-item__price {
-    color: #e74c3c;
-    font-weight: bold;
+    color: dimgray;
+    font-weight: normal;
 }
 
 .cart-item__controls {
@@ -452,30 +543,30 @@ body {
 
 .cart-item__quantity {
     font-weight: bold;
-    min-width: 20px;
+    min-width: 10px;
     text-align: center;
 }
 
 .btn--quantity {
-    background-color: #3498db;
-    color: white;
+    background-color: white;
+    color: black;
     border: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border-radius: 10%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
     .btn--quantity:hover {
-        background-color: #2980b9;
+        background-color: gainsboro;
     }
 
 .btn--remove {
-    background-color: #e74c3c;
+    background-color: dimgray;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -520,6 +611,10 @@ body {
     .cart-popup {
         width: 300px;
         right: -50px;
+    }
+
+    .header__left {
+        margin-left: 0px;
     }
 }
 
