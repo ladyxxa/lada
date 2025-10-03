@@ -1,5 +1,4 @@
-﻿// Создаем массив с информацией о всех товарах в магазине
-const products = [
+﻿const products = [
     {
         id: 1,
         name: "LADA Granta",
@@ -44,10 +43,9 @@ const products = [
     },
 ];
 
-// ===== КОРЗИНА =====
+
 let cartItems = [];
 
-// ===== ЭЛЕМЕНТЫ DOM =====
 let cartIcon, cartPopup, closeCart, cartCount, cartItemsList, cartTotal;
 let openOrderForm, orderModal, successModal, closeModal, cancelOrder, closeSuccess, orderForm;
 
@@ -71,7 +69,7 @@ function initDOMelements() {
     console.log('Элементы DOM инициализированы');
 }
 
-// ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
+
 function getProductById(productId) {
     return products.find(product => product.id === productId);
 }

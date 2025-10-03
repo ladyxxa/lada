@@ -1,20 +1,20 @@
-﻿/* Обнуляем стандартные отступы и заставляем браузер правильно считать ширину блоков */
+﻿
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Задаем базовый шрифт для всей страницы */
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
 }
 /* ===== БАЗОВЫЕ СТИЛИ СТРАНИЦЫ ===== */
 body {
-    background-color: white; /*  фон всей страницы */
-    color: #333; /* Темно-серый цвет текста */
-    padding: 30px; /* Отступы от краев окна браузера */
+    background-color: white; 
+    color: #333; 
+    padding: 30px;
 }
 
 /* Стили для шапки */
@@ -187,10 +187,10 @@ body {
 
 /* Стили для цены */
 .product-card__price {
-    font-size: 1.1em; /* Размер шрифта */
-    font-weight: normal; /* Жирный шрифт */
-    color: dimgrey; /* Черный цвет для цены */
-    margin-bottom: 15px; /* Отступ снизу */
+    font-size: 1.1em; 
+    font-weight: normal; 
+    color: dimgrey; 
+    margin-bottom: 15px; 
 }
 
 /* ===== ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ КНОПОК ===== */
@@ -312,7 +312,8 @@ body {
 
     /* Уменьшаем изображения товаров */
     .product-card__image {
-        height: 150px;
+        height: 220px; /* уменьшить высоту */
+        object-fit: cover;
     }
 
     /* Уменьшаем шрифты для экономии места */
