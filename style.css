@@ -1,0 +1,552 @@
+﻿/* Обнуляем стандартные отступы и заставляем браузер правильно считать ширину блоков */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Задаем базовый шрифт для всей страницы */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+/* ===== БАЗОВЫЕ СТИЛИ СТРАНИЦЫ ===== */
+body {
+    background-color: #f8f9fa; /* Светло-серый фон всей страницы */
+    color: #333; /* Темно-серый цвет текста */
+    padding: 20px; /* Отступы от краев окна браузера */
+}
+
+/* Стили для шапки */
+.header {
+    text-align: center; /* Выравнивание текста по центру */
+    margin-bottom: 30px; /* Отступ снизу, чтобы отделить от каталога */
+    padding: 20px 0; /* Отступы сверху и снизу внутри шапки */
+    background-color: #000; /* Белый фон шапки */
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Тень вокруг шапки */
+}
+
+    .header h1 {
+        color: #fff; /* Темно-синий цвет заголовка */
+    }
+
+/* ===== ОСНОВНОЕ РАСПОЛОЖЕНИЕ ===== */
+.main {
+    display: flex; /* Включаем flexbox для расположения в ряд */
+    gap: 30px; /* Расстояние между каталогом и корзиной */
+}
+
+.catalog {
+    flex: 1; /* Каталог займет всё доступное пространство */
+}
+
+.cart {
+    width: 300px; /* Фиксированная ширина для корзины */
+    background-color: #fff; /* Белый фон корзины */
+    padding: 20px; /* Внутренние отступы */
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Тень */
+}
+
+/* ===== КАТАЛОГ ТОВАРОВ ===== */
+.catalog h2 {
+    margin-bottom: 20px; /* Отступ снизу у заголовка каталога */
+    color: #2c3e50; /* Цвет заголовка */
+}
+
+/* Контейнер для карточек - ВКЛЮЧАЕМ GRID */
+.catalog__list {
+    display: grid; /* Включаем режим сетки */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Волшебная строка! */
+    gap: 20px; /* Расстояние между карточками */
+}
+
+/* ===== КАРТОЧКА ТОВАРА ===== */
+.product-card {
+    background-color: #fff; /* Белый фон карточки */
+    border-radius: 8px; /* Скругленные углы */
+    padding: 15px; /* Внутренние отступы */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Тень */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные анимации */
+}
+
+    /* Эффект при наведении на карточку */
+    .product-card:hover {
+        transform: translateY(-5px); /* Поднимаем карточку на 5px */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Увеличиваем тень */
+    }
+
+/* Стили для изображения в карточке */
+.product-card__image {
+    width: 100%; /* Ширина на всю карточку */
+    height: 300px; /* Фиксированная высота */
+    object-fit: cover; /* Обрезаем изображение, чтобы оно заполнило область */
+    border-radius: 4px; /* Скругленные углы у изображения */
+    margin-bottom: 15px; /* Отступ снизу */
+}
+
+/* Стили для названия товара */
+.product-card__name {
+    font-size: 1.2em; /* Размер шрифта чуть больше обычного */
+    font-weight: bold; /* Жирный шрифт */
+    margin-bottom: 10px; /* Отступ снизу */
+    color: #2c3e50; /* Цвет текста */
+}
+
+/* Стили для цены */
+.product-card__price {
+    font-size: 1.3em; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    color: #333; /* Черный цвет для цены */
+    margin-bottom: 15px; /* Отступ снизу */
+}
+
+/* ===== ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ КНОПОК ===== */
+.btn {
+    padding: 10px 15px; /* Внутренние отступы */
+    border: none; /* Убираем стандартную рамку */
+    border-radius: 4px; /* Скругленные углы */
+    cursor: pointer; /* Меняем курсор на "руку" при наведении */
+    font-size: 1em; /* Размер шрифта */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета */
+}
+
+/* Стили для кнопки "Добавить в корзину" */
+.btn--add {
+    background-color: rgba(0,0,0,0.1); /*  цвет фона */
+    color: black; /*  цвет текста */
+    width: 100%; /* Ширина на всю карточку */
+}
+
+    /* Эффект при наведении на кнопку */
+    .btn--add:hover {
+        background-color: rgb(255, 0, 0); /*  при наведении */
+    }
+
+/* ===== КОРЗИНА ===== */
+.cart h2 {
+    margin-bottom: 20px; /* Отступ снизу у заголовка */
+    color: #2c3e50; /* Цвет заголовка */
+    text-align: center; /* Выравнивание по центру */
+}
+
+/* Стили для списка товаров в корзине */
+.cart__items {
+    list-style: none; /* Убираем точки у списка */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Сообщение о пустой корзине */
+.cart__empty {
+    text-align: center; /* Выравнивание по центру */
+    color: #7f8c8d; /* Серый цвет текста */
+    font-style: italic; /* Курсив */
+}
+
+/* Стили для итоговой суммы */
+.cart__total {
+    font-size: 1.3em; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    text-align: center; /* Выравнивание по центру */
+    margin-bottom: 20px; /* Отступ снизу */
+    color: #2c3e50; /* Цвет текста */
+}
+
+/* Стили для кнопки оформления заказа */
+.btn--order {
+    background-color: #27ae60; /* Зеленый цвет фона */
+    color: white; /* Белый цвет текста */
+    width: 100%; /* Ширина на всю корзину */
+}
+
+    .btn--order:hover {
+        background-color: #219652; /* Темно-зеленый при наведении */
+    }
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+/* Для планшетов (ширина экрана 768px и меньше) */
+@media (max-width: 768px) {
+    /* Меняем расположение с бок о бок на вертикальное */
+    .main {
+        flex-direction: column; /* Элементы встают в колонку */
+    }
+
+    /* Корзина занимает всю ширину на планшетах */
+    .cart {
+        width: 100%; /* Вместо фиксированных 300px */
+        margin-top: 30px; /* Добавляем отступ сверху */
+    }
+
+    /* Уменьшаем отступы для экономии места */
+    body {
+        padding: 15px;
+    }
+
+    /* Уменьшаем расстояние между карточками */
+    .catalog__list {
+        gap: 15px;
+    }
+}
+
+/* Для мобильных телефонов (ширина экрана 480px и меньше) */
+@media (max-width: 480px) {
+    /* Еще больше уменьшаем отступы */
+    body {
+        padding: 10px;
+    }
+
+    /* Делаем шапку компактнее */
+    .header {
+        padding: 15px 0;
+        margin-bottom: 20px;
+    }
+
+        /* Уменьшаем размер заголовка */
+        .header h1 {
+            font-size: 1.5em;
+        }
+
+    /* Меняем сетку на одноколоночную */
+    .catalog__list {
+        grid-template-columns: 1fr; /* Только одна колонка */
+        gap: 15px;
+    }
+
+    /* Делаем карточки более компактными */
+    .product-card {
+        padding: 12px;
+    }
+
+    /* Уменьшаем изображения товаров */
+    .product-card__image {
+        height: 150px;
+    }
+
+    /* Уменьшаем шрифты для экономии места */
+    .product-card__name {
+        font-size: 1.1em;
+    }
+
+    .product-card__price {
+        font-size: 1.2em;
+    }
+
+    /* Делаем кнопки немного меньше */
+    .btn {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    /* Корзина тоже становится компактнее */
+    .cart {
+        padding: 15px;
+    }
+}
+
+/* Для небольших ноутбуков и планшетов в альбомной ориентации */
+@media (max-width: 1024px) {
+    /* Немного уменьшаем общие отступы */
+    body {
+        padding: 15px;
+    }
+
+    /* Делаем сетку более плотной */
+    .catalog__list {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 18px;
+    }
+
+    /* Немного уменьшаем корзину */
+    .cart {
+        width: 280px;
+    }
+}
+
+/* ===== НОВАЯ ШАПКА С КОРЗИНОЙ ===== */
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed; /* Закрепляем шапку */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Чтобы шапка была поверх всего */
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header__title {
+    color: #2c3e50;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+/* ===== ИКОНКА КОРЗИНЫ В ШАПКЕ ===== */
+.header-cart {
+    position: relative;
+}
+
+.header-cart__icon {
+    background: none;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    color: #2c3e50;
+}
+
+    .header-cart__icon:hover {
+        background-color: #f8f9fa;
+    }
+
+.header-cart__svg {
+    display: block;
+}
+
+.header-cart__count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+    /* Скрываем бейдж, когда корзина пуста */
+    .header-cart__count:empty {
+        display: none;
+    }
+
+/* ===== ВСПЛЫВАЮЩЕЕ ОКНО КОРЗИНЫ ===== */
+.cart-popup {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 350px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+    /* Показываем окно корзины при активации */
+    .cart-popup.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+.cart-popup__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+    .cart-popup__header h3 {
+        margin: 0;
+        color: #2c3e50;
+    }
+
+.cart-popup__close {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #7f8c8d;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .cart-popup__close:hover {
+        background-color: #f8f9fa;
+        color: #e74c3c;
+    }
+
+.cart-popup__content {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.cart-popup__items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-popup__empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* Стили для товара в корзине */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f8f9fa;
+    gap: 10px;
+}
+
+    .cart-item:last-child {
+        border-bottom: none;
+    }
+
+.cart-item__image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cart-item__info {
+    flex: 1;
+}
+
+.cart-item__name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.cart-item__price {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.cart-item__controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-item__quantity {
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+.btn--quantity {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+}
+
+    .btn--quantity:hover {
+        background-color: #2980b9;
+    }
+
+.btn--remove {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+    .btn--remove:hover {
+        background-color: #c0392b;
+    }
+
+.cart-popup__footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.cart-popup__total {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.btn--full {
+    width: 100%;
+}
+
+/* ===== АДАПТИВНОСТЬ ДЛЯ НОВОЙ КОРЗИНЫ ===== */
+
+/* Для планшетов */
+@media (max-width: 768px) {
+    .header__content {
+        padding: 12px 15px;
+    }
+
+    .header__title {
+        font-size: 1.3em;
+    }
+
+    .cart-popup {
+        width: 300px;
+        right: -50px;
+    }
+}
+
+/* Для мобильных телефонов */
+@media (max-width: 480px) {
+    .header__content {
+        padding: 10px;
+    }
+
+    .header__title {
+        font-size: 1.2em;
+    }
+
+    .cart-popup {
+        width: 280px;
+        right: -80px;
+    }
+
+    .cart-item {
+        padding: 12px 15px;
+    }
+}
+
+/* Для очень маленьких телефонов */
+@media (max-width: 360px) {
+    .cart-popup {
+        width: 250px;
+        right: -100px;
+    }
+}
