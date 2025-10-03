@@ -4,43 +4,43 @@ const products = [
         id: 1,
         name: "LADA Granta",
         price: 600000,
-        image: "img/product1.jpg"
+        image: "img/IMG_6426.png"
     },
     {
         id: 2,
         name: "LADA Vesta",
         price: 1200000,
-        image: "img/product2.jpg"
+        image: "img/vesta.jpg"
     },
     {
         id: 3,
         name: "LADA Iskra",
         price: 850000,
-        image: "img/product3.jpg"
+        image: "img/IMG_6431.png"
     },
      {
         id: 4,
-        name: "LADA Iskra",
-        price: 850000,
-        image: "img/product3.jpg"
+        name: "LADA Largus",
+        price: 650000,
+        image: "img/IMG_6432.png"
     },
      {
         id: 5,
-        name: "LADA Iskra",
-        price: 850000,
-        image: "img/product3.jpg"
+        name: "LADA Aura",
+        price: 1050000,
+        image: "img/aura.jpg"
     },
      {
         id: 6,
-        name: "LADA Iskra",
-        price: 850000,
-        image: "img/product3.jpg"
+        name: "LADA NIVA Legend",
+        price: 505000,
+        image: "img/IMG_6433.png"
     },
      {
         id: 7,
-        name: "LADA Iskra",
-        price: 850000,
-        image: "img/product3.jpg"
+        name: "LADA NIVA Travel",
+        price: 735000,
+        image: "img/IMG_6434.png"
     },
 ];
 
